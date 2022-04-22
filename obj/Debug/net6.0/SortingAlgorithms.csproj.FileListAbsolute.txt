@@ -1,0 +1,15 @@
+C:\_dev\CSharp\SortingAlgorithms\bin\Debug\net6.0\SortingAlgorithms.exe
+C:\_dev\CSharp\SortingAlgorithms\bin\Debug\net6.0\SortingAlgorithms.deps.json
+C:\_dev\CSharp\SortingAlgorithms\bin\Debug\net6.0\SortingAlgorithms.runtimeconfig.json
+C:\_dev\CSharp\SortingAlgorithms\bin\Debug\net6.0\SortingAlgorithms.dll
+C:\_dev\CSharp\SortingAlgorithms\bin\Debug\net6.0\SortingAlgorithms.pdb
+C:\_dev\CSharp\SortingAlgorithms\obj\Debug\net6.0\SortingAlgorithms.csproj.AssemblyReference.cache
+C:\_dev\CSharp\SortingAlgorithms\obj\Debug\net6.0\SortingAlgorithms.GeneratedMSBuildEditorConfig.editorconfig
+C:\_dev\CSharp\SortingAlgorithms\obj\Debug\net6.0\SortingAlgorithms.AssemblyInfoInputs.cache
+C:\_dev\CSharp\SortingAlgorithms\obj\Debug\net6.0\SortingAlgorithms.AssemblyInfo.cs
+C:\_dev\CSharp\SortingAlgorithms\obj\Debug\net6.0\SortingAlgorithms.csproj.CoreCompileInputs.cache
+C:\_dev\CSharp\SortingAlgorithms\obj\Debug\net6.0\SortingAlgorithms.dll
+C:\_dev\CSharp\SortingAlgorithms\obj\Debug\net6.0\refint\SortingAlgorithms.dll
+C:\_dev\CSharp\SortingAlgorithms\obj\Debug\net6.0\SortingAlgorithms.pdb
+C:\_dev\CSharp\SortingAlgorithms\obj\Debug\net6.0\SortingAlgorithms.genruntimeconfig.cache
+C:\_dev\CSharp\SortingAlgorithms\obj\Debug\net6.0\ref\SortingAlgorithms.dll
