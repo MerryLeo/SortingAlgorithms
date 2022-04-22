@@ -4,13 +4,20 @@
     {
         static void Main(string[] args)
         {
-            List<int> intArr = new List<int> { 1, -8, 3, 5, 129, -39, 42, -5, 2, -10 };
-            intArr.BubbleSort();
-            Console.WriteLine(string.Join(", ", intArr));
-            
-            List<string> stringArr = new List<string> {"Leo", "Benjamin", "Julie", "Patrick"};
-            stringArr.BubbleSort();
-            Console.WriteLine(string.Join(", ", stringArr));
+            List<int> myIntegers = new List<int> {5, -10, -252, 105, 8, 5, 102};
+            myIntegers.QuickSort(0, myIntegers.Count - 1);
+            Console.WriteLine(string.Join(", ", myIntegers));
+
+            // ShowMenu();
+        }
+
+        public static void ShowMenu()
+        {
+            string? input;
+            Console.Write("What kind of data do you want to sort? (T)ext or (N)umbers: ");
+            input = Console.ReadLine();
+
+
         }
     }
 }
