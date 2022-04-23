@@ -11,14 +11,11 @@ namespace Sort
                 isSorted = true;
                 for (int i = 0; i < list.Count - 1; i++)
                 {
-                    T element = list.ElementAt(i);
-                    T nextElement = list.ElementAt(i + 1);
-                    
-                    // Swap Elements
+                    T element = list.ElementAt(i), nextElement = list.ElementAt(i + 1);
                     if (element.CompareTo(nextElement) > 0)
                     {
-                        isSorted = false;
                         list.Swap(i, i + 1);
+                        isSorted = false;
                     }
                 }
             }
@@ -36,7 +33,30 @@ namespace Sort
 
         public static void CocktailSort<T>(this IList<T> list) where T : IComparable
         {
-            
+            bool isSorted = false;
+            while (!isSorted)
+            {
+                isSorted = true;
+                int i;
+                for (i = 0; i < list.Count - 1; i++)
+                {
+                    T element = list.ElementAt(i), nextElement = list.ElementAt(i + 1);
+                    if (element.CompareTo(nextElement) > 0)
+                    {
+                        list.Swap(i, i + 1);
+                        isSorted = false;
+                    }
+                }
+                for (i = list.Count - 1; i > 0; i--)
+                {
+                    T element = list.ElementAt(i), nextElement = list.ElementAt(i - 1);
+                    if (element.CompareTo(nextElement) < 0)
+                    {
+                        list.Swap(i, i - 1);
+                        isSorted = false;
+                    }
+                }
+            }
         }
 
         /// <summary>

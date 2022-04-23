@@ -4,10 +4,10 @@
     {
         static void Main(string[] args)
         {
-            List<int> myIntegers = new List<int> {5, -10, -252, 105, 8, 5, 102};
-            myIntegers.QuickSort(0, myIntegers.Count - 1);
+            List<int> myIntegers = new List<int> {5, -10, -252, 105, 8, 5, 102, 55, 202, -32, 102};
+            myIntegers.CocktailSort();
             Console.WriteLine(string.Join(", ", myIntegers));
-
+            
             // ShowMenu();
         }
 
