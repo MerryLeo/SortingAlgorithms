@@ -4,20 +4,21 @@
     {
         static void Main(string[] args)
         {
-            List<int> myIntegers = new List<int> {5, -10, -252, 105, 8, 5, 102, 55, 202, -32, 102};
-            myIntegers.CocktailSort();
-            Console.WriteLine(string.Join(", ", myIntegers));
-            
-            // ShowMenu();
-        }
+            List<int> myIntegers = new List<int> {5, -10, -252, 105, 8, 5, -102, 55, -202, -32, 102};
+            List<int> copyOfList = new List<int>(myIntegers);
+            SortStatistic stat = copyOfList.BubbleSort();
+            Console.WriteLine($"Bubble Sort returned: {string.Join(", ", myIntegers)}");
+            stat.PrintStatistic();
 
-        public static void ShowMenu()
-        {
-            string? input;
-            Console.Write("What kind of data do you want to sort? (T)ext or (N)umbers: ");
-            input = Console.ReadLine();
+            copyOfList = new List<int>(myIntegers);
+            stat = copyOfList.CocktailSort();
+            Console.WriteLine($"\nCocktail Sort returned: {string.Join(", ", myIntegers)}");
+            stat.PrintStatistic();
 
-
+            copyOfList = new List<int>(myIntegers);
+            stat = copyOfList.QuickSort();
+            Console.WriteLine($"\nQuick Sort returned: {string.Join(", ", myIntegers)}");
+            stat.PrintStatistic();
         }
     }
 }
