@@ -1,8 +1,10 @@
 # SortingAlgorithms
 This is my attempt at remaking three of the most popular sorting algorithms: Bubble Sort, Quick Sort, and Cocktail Sort. </br>
-This project was built in Dotnet 6.0. To run it, simply clone this repos, and enter the command `dotnet run` inside the project folder. </br> </br>
+This project was built in Dotnet 6.0. To run it, simply clone this repos, and enter the command `dotnet run` inside the project folder.
+
 Once the project is running, two types of data can be sorted: Text (strings) or Numbers (floats). </br>
-Note that the different functions can be called on any object that implements the `IList<IComparable>` interfaces.
+Note that the different functions can be called on any object that implements the `IList<IComparable>` interfaces. </br>
+Also note that **no data validation** is done in any way possible, the program will crash if the data provided is in an incorrect format.
 
 ## Bubble Sort
 This algorithm sorts a collection by comparing each value individually to the next in the collection. If the next value is inferior to the previous one, then both of these values are swapped in the collection. Once a full iteration over the collection has been completed without any swap, the sorted collection is returned. 
