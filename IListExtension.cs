@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 namespace Sort
 {
-    public static class MySortClass
+    public static class IListExtension
     {
         public static SortStatistic BubbleSort<T>(this IList<T> list) where T : IComparable
         {
@@ -120,15 +120,16 @@ namespace Sort
             collection.Insert(nextIndex, firstElement);
         }
     }
+    
     public class SortStatistic
     {
         public Stopwatch stopWatch;
         public int swapCount, compareCount;
+        public string Results => $"It took {stopWatch.Elapsed.TotalMilliseconds}ms to sort the list, swapped {swapCount} values, and compared {compareCount} values.";
         public SortStatistic()
         {
             this.stopWatch = new Stopwatch();
             this.swapCount = this.compareCount = 0;
         }
-        public void PrintStatistic() => Console.WriteLine($"It took {stopWatch.Elapsed.TotalMilliseconds}ms to sort the list, swapped {swapCount} values, and compared {compareCount} values.");
     }
 }

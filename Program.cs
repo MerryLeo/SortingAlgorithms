@@ -1,80 +1,89 @@
-﻿namespace Sort
+﻿using System.Text;
+using static System.Console;
+
+namespace Sort
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            // Get type of data to sort from user
             string? input;
-            Console.Write("What kind of data do you want to sort? (T)ext or (N)umbers: ");
-            input = Console.ReadLine();
-            if (input != "T" && input != "N")
+            ConsoleKey keyEntered;
+            SortStatistic sortingStats;
+            List<IComparable> originalList = new List<IComparable>(), sortedList = new List<IComparable>();
+            StringBuilder results = new StringBuilder();
+            bool validInput;
+
+            // Get type of data to sort from user
+            WriteLine("What kind of data do you want to sort? Press T for text or N for numbers: ");
+            keyEntered = ReadKey().Key;
+            while (keyEntered != ConsoleKey.T && keyEntered != ConsoleKey.N)
             {
-                bool validInput = false;
+                WriteLine("\nYour input was invalid. Try again: Press T for text or N for numbers: ");
+                keyEntered = ReadKey().Key;
+            }
+
+            // Get strings from user
+            if (keyEntered == ConsoleKey.T)
+            {
+                WriteLine("\nEnter a list of words seperated by a comma and a space (ex: Apple, Orange, Green): ");
+                validInput = false;
                 while (!validInput)
                 {
-                    Console.WriteLine("Your input was invalid. Try again (T)ext or (N)umbers: ");
-                    input = Console.ReadLine();
-                    validInput = input == "T" || input == "N";
+                    try
+                    {
+                        input = ReadLine() ?? throw new ArgumentNullException();
+                        originalList = input.Split(", ").Cast<IComparable>().ToList();
+                        if (originalList.Count > 1)
+                            validInput = true;
+                    }
+                    catch (System.Exception) { }
+                    if (!validInput) 
+                        WriteLine("Your words were an invalid input. Try again: ");
                 }
             }
-            
-            if (input == "T")
-            {
-                Console.Write("\nEnter a list of words seperated by a comma and a space (ex: Apple, Orange, Green): ");
-                input = Console.ReadLine() ?? throw new ArgumentNullException();
-                List<string> list = input.Split(", ").ToList();
-                
-                // Print Results
-                Console.WriteLine("\nResults: ");
 
-                // Sort with Bubble Sort
-                List<string> copyList = new List<string>(list);
-                SortStatistic statistic = copyList.BubbleSort();
-                Console.WriteLine($"Bubble Sort returned: {string.Join(", ", copyList)}");
-                statistic.PrintStatistic();
-
-                // Reset List and Sort with Quick Sort
-                copyList = new List<string>(list);
-                statistic = copyList.QuickSort();
-                Console.WriteLine($"\nQuick Sort returned: {string.Join(", ", copyList)}");
-                statistic = copyList.QuickSort();
-                statistic.PrintStatistic();
-
-                // Reset List and Sort with Cocktail Sort
-                copyList = new List<string>(list);
-                statistic = copyList.CocktailSort();
-                Console.WriteLine($"\nCocktail Sort returned: {string.Join(", ", copyList)}");
-                statistic.PrintStatistic();
-            }
+            // Get numbers from user
             else
             {
-                Console.Write("\nEnter a list of numbers seperated by a comma and a space (ex: 1, -23, 5, 102): ");
-                input = Console.ReadLine() ?? throw new ArgumentNullException();
-                List<float> list = input.Split(", ").Select(x => float.Parse(x)).ToList();
-
-                // Print Results
-                Console.WriteLine("\nResults: ");
-
-                // Sort with Bubble Sort
-                List<float> copyList = new List<float>(list);
-                SortStatistic statistic = copyList.BubbleSort();
-                Console.WriteLine($"Bubble Sort returned: {string.Join(", ", copyList)}");
-                statistic.PrintStatistic();
-
-                // Reset List and Sort with Quick Sort
-                copyList = new List<float>(list);
-                statistic = copyList.QuickSort();
-                Console.WriteLine($"\nQuick Sort returned: {string.Join(", ", copyList)}");
-                statistic = copyList.QuickSort();
-                statistic.PrintStatistic();
-
-                // Reset List and Sort with Cocktail Sort
-                copyList = new List<float>(list);
-                statistic = copyList.CocktailSort();
-                Console.WriteLine($"\nCocktail Sort returned: {string.Join(", ", copyList)}");
-                statistic.PrintStatistic();
+                WriteLine("\nEnter a list of numbers seperated by a comma and a space (ex: 1, -23, 5, 102): ");
+                validInput = false;
+                while (!validInput)
+                {
+                    try
+                    {
+                        input = ReadLine() ?? throw new ArgumentNullException();
+                        originalList = input.Split(", ").Select(x => float.Parse(x)).Cast<IComparable>().ToList();
+                        if (originalList.Count > 1)
+                            validInput = true;
+                    }
+                    catch (System.Exception) { }
+                    if (!validInput) 
+                        WriteLine("Your numbers were an invalid input. Try again: ");
+                }
             }
+
+            results.AppendLine("\nResults:");
+
+            // Bubble Sort
+            sortedList = new List<IComparable>(originalList);
+            sortingStats = sortedList.BubbleSort();
+            results.AppendLine($"\nBubble Sort returned: {string.Join(", ", sortedList)}");
+            results.AppendLine(sortingStats.Results);
+
+            // Quick Sort
+            sortedList = new List<IComparable>(originalList);
+            sortingStats = sortedList.QuickSort();
+            results.AppendLine($"\nQuick Sort returned: {string.Join(", ", sortedList)}");
+            results.AppendLine(sortingStats.Results);
+
+            // Cocktail Sort
+            sortedList = new List<IComparable>(originalList);
+            sortingStats = sortedList.CocktailSort();
+            results.AppendLine($"\nCocktail Sort returned: {string.Join(", ", sortedList)}");
+            results.AppendLine(sortingStats.Results);
+
+            WriteLine(results.ToString());
         }
     }
 }
